@@ -4,15 +4,14 @@
 #
 
 # VEEAM Update Downloader with BITS
-# for VeeamBackup&Replication_9.5.0.823_Update1.zip
+# for Veeam_B&R_9.5-Scripts_v1.0.zip
 # ..............................................
 
 # Definitions
-# https://dataspace.livingdata.de/#/public/shares-downloads/Nbzu8uQagbGO1TA0Q4mRpw2PFho39seF
-$source = "https://dataspace.livingdata.de/api/v4/public/shares/downloads/Nbzu8uQagbGO1TA0Q4mRpw2PFho39seF/50FaF34iZLsB3yjahvh947xj4Ii_80EybO_HMPw5d3XG9dO7MrMFq7EiaHKZbZTKLKKD67H92QDi2Eyj7khqqWk2l1FdyYmmSbqbJTanXcU-t4uA85LSW8evcRtTAgqAwSREmWI-p8MOiIufRl6C81pmEct8_tV9yz4kOatx4nD-IvV9vBLffXeNec1c4451a7566af0"
 
+$source = "https://dataspace.livingdata.de/api/v4/public/shares/downloads/62aW4xV2qkw1m7j3CDU3cosD360ehmnd/14XT05IWdRVsJZUzG3Y6QnWtKqVlM3wy2WggJ0lK1LbSGTraiZiatM0MdMt2uwIYCX-1B9VyzfrPoRFqAsG9Dc_Uy_aoA9976yJroSc_PSGkmziByprR-x3hEkLJizcCODVGRTvabqAOQYey44ultUOZ5_sC4cGx6FJTAFQJud2b4O-_wvDRB2-L3cb95c1f7f13aa76"
 write-host $source
-$destinationfile = "VeeamBackup&Replication_9.5.0.823_Update1.zip"
+$destinationfile = "Veeam_B&R_9.5-Scripts_v1.0.zip"
 write-host $destinationfile
 $destinationpath = "c:\scripts\updates\"
 write-host $destinationpath
@@ -40,6 +39,8 @@ Add-Type -A System.IO.Compression.FileSystem
 # Make ZIP
 # [IO.Compression.ZipFile]::CreateFromDirectory( $destinationpath, $destinationpath + $destinationfile)
 write-host "Extract..."
+$destinationpath = "c:\test"
+write-host $destinationpath
 [IO.Compression.ZipFile]::ExtractToDirectory( $destinationpath + $destinationfile, $destinationpath)
 write-host "[IO.Compression.ZipFile]::ExtractToDirectory( $destinationpath + $destinationfile, $destinationpath)"
 
