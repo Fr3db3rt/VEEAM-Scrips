@@ -13,7 +13,7 @@ $source = "https://dataspace.livingdata.de/api/v4/public/shares/downloads/62aW4x
 write-host $source
 $destinationfile = "Veeam_B&R_9.5-Scripts_v1.0.zip"
 write-host $destinationfile
-$destinationpath = "c:\scripts\updates\"
+$destinationpath = "c:\test\"
 write-host $destinationpath
 $destination = $destinationpath + $destinationfile
 write-host $destination
@@ -39,8 +39,8 @@ Add-Type -A System.IO.Compression.FileSystem
 # Make ZIP
 # [IO.Compression.ZipFile]::CreateFromDirectory( $destinationpath, $destinationpath + $destinationfile)
 write-host "Extract..."
-$destinationpath = "c:\test"
-write-host $destinationpath
+###$destinationpath = "c:\test\"
+###write-host $destinationpath
 [IO.Compression.ZipFile]::ExtractToDirectory( $destinationpath + $destinationfile, $destinationpath)
 write-host "[IO.Compression.ZipFile]::ExtractToDirectory( $destinationpath + $destinationfile, $destinationpath)"
 
