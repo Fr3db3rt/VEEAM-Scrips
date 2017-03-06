@@ -4,8 +4,19 @@ PowerShell -NoProfile -ExecutionPolicy Bypass -Command "& 'C:\Scripts\Veeam_Tape
 
 Add-PSSnapin VeeamPSSnapin
 
+# B&R Server ermitteln und anschliessend Tape Server ermitteln
+Get-VBRLocalhost | Get-VBRTapeServer
+
+# Tape Server und Tape Library ermitteln
+Get-VBRTapeServer | Get-VBRTapeLibrary
+
 # Tape Library einlesen und Inventarisierung starten und auf Abschluss warten
 Get-VBRTapeLibrary | Start-VBRTapeInventory -wait
+
+# Drive identifizieren und aktuelles Tape identifizieren 
+$drive = Get-VBRTapeDrive
+Get-VBRTapeMedium -Drive $drive
+####
 
 # Drive identifizieren und aktuelles Tape identifizieren und auf Abschluss warten
 $tape = Get-VBRTapeDrive | Get-VBRTapeMedium
